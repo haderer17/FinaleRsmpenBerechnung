@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BMX Rampen-Rechner</title>
+<style>
+  :root {
+    --bg:#0f1724;
+    --card:#0b1220;
+    --accent:#1fb6ff;
+    --text:#e6eef8;
+    --muted:#9fb4c9;
+  }
+  body {margin:0; font-family:system-ui; background:var(--bg); color:var(--text); display:flex; justify-content:center; padding:20px;}
+  .app {width:100%; max-width:920px;}
+  .card {background:var(--card); border-radius:12px; padding:12px; margin-bottom:12px;}
+  .inputs {display:flex; flex-wrap:wrap; gap:10px;}
+  input[type=number] {padding:10px; border-radius:8px; border:none; background:#1b1f2b; color:#e6eef8; width:100px;}
+  button {padding:8px 12px; border:none; border-radius:8px; background:var(--accent); color:#00222e; font-weight:600; cursor:pointer;}
+  canvas {width:100%; height:300px; border-radius:8px; background:#071022; display:block; margin-top:12px;}
+  .results {display:grid; grid-template-columns:repeat(2,1fr); gap:8px; margin-top:8px;}
+  .resItem {background:rgba(255,255,255,0.02); padding:8px; border-radius:8px;}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="card">
+    <h2>BMX Rampen-Rechner</h2>
+    <div class="inputs">
+      <label>Höhe h (m)<input id="h" type="number" step="0.01" placeholder="3.00"></label>
+      <label>Winkel θ (°)<input id="theta" type="number" step="0.1" placeholder="65"></label>
+      <label>Radius R (m)<input id="R" type="number" step="0.01" placeholder="5.20"></label>
+    </div>
+    <div style="margin-top:10px;">
+      <button id="calcBtn">Berechnen</button>
+      <button id="resetBtn" style="background:#2b3642;color:#e6eef8;">Zurücksetzen</button>
+    </div>
+    <div class="results">
+      <div class="resItem" id="outR">R = — m</div>
+      <div class="resItem" id="outh">h = — m</div>
+      <div class="resItem" id="outTheta">θ = — °</div>
+      <div class="resItem" id="outX">Horizontale Länge = — m</div>
+      <div class="resItem" id="outArc">Bogenlänge = — m</div>
+      <div class="resItem" id="outChord">Sehnenlänge = — m</div>
+    </div>
+    <canvas id="canvas"></canvas>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
